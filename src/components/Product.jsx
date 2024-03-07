@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getSingleProduct } from '../services/asyncGetRequests';
+import { useCart } from 'react-use-cart';
 
 export default function Product() {
-	const navigate = useNavigate();
 	const { id } = useParams();
+	const navigate = useNavigate();
+	const { addItem } = useCart();
+
 	const [singleProduct, setSingleProduct] = useState({});
 
 	useEffect(() => {
@@ -15,13 +18,21 @@ export default function Product() {
 
 	return (
 		<div>
-			<img src={singleProduct.thumbnail} alt="" />
-			<p>Place a carousel for the pictures with Tailwind</p>
-			<h3>{singleProduct.title}</h3>
-			<p>{singleProduct.brand}</p>
-			<p>{singleProduct.price} $</p>
-			<p>{singleProduct.description}</p>
-			<button onClick={() => navigate('/card')}>Add to Card</button>
+			<>
+				<img src={singleProduct.thumbnail} alt="" />
+				<h3>{singleProduct.title}</h3>
+				<p>{singleProduct.brand}</p>
+				<p>{singleProduct.price} $</p>
+				<button onClick={() => addItem(singleProduct)}>Add to Card</button>
+				<button onClick={() => navigate(-1)}>Go Back</button>
+				<p>{singleProduct.description}</p>
+				<div className="productImages">
+					{singleProduct.images &&
+						singleProduct.images.map((image, index) => (
+							<img key={index} src={image} alt="" />
+						))}
+				</div>
+			</>
 		</div>
 	);
 }

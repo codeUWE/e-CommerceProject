@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
 	getCategoryList,
 	getProductListHomePage,
 } from '../services/asyncGetRequests';
+import SearchBar from './SearchBar';
 
 export default function Homepage() {
 	const [categoryList, setCategoryList] = useState([]);
 	const [products, setProducts] = useState([]);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		getProductListHomePage()
@@ -22,7 +25,7 @@ export default function Homepage() {
 		<>
 			<div className="vhWrapper">
 				<div className="searchBar">
-					<p>here comes a input field</p>
+					<SearchBar />
 				</div>
 				<div className="interestCategories">
 					<h2>These Categories might interest you.</h2>
@@ -54,7 +57,13 @@ export default function Homepage() {
 				</div>
 				<div className="sellProducts">
 					<h2>Want to sell your products?</h2>
-					<button>Click here</button>
+					<button
+						onClick={() => {
+							navigate('/contact');
+						}}
+					>
+						Get in touch
+					</button>
 				</div>
 			</div>
 		</>

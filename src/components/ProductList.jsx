@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getProductList } from '../services/asyncGetRequests';
+import { useCart } from 'react-use-cart';
 
 export default function ProductList() {
 	const navigate = useNavigate();
+	const { addItem } = useCart();
 
 	const [productList, setProductList] = useState([]);
 
@@ -24,6 +26,7 @@ export default function ProductList() {
 					<button onClick={() => navigate(`/products/${product.id}`)}>
 						View Details
 					</button>
+					<button onClick={() => addItem(product)}>Add to Card</button>
 				</div>
 			))}
 		</div>

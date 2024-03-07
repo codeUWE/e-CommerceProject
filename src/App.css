@@ -31,6 +31,12 @@ nav a {
 	gap: 20px;
 	margin-right: 50px;
 }
+.navCart span {
+	position: absolute;
+	font-size: 20px;
+	top: 20px;
+	right: 128px;
+}
 
 #test {
 	background-color: red;

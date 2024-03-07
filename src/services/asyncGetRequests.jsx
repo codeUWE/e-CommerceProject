@@ -37,11 +37,11 @@ export const getSingleProduct = async (id) => {
 };
 
 // get Searched Product from API
-export const getSearchedProduct = async (search) => {
+export const getSearchedProduct = async (input) => {
 	const { data } = await axios.get(
-		`https://dummyjson.com/products/search?q=${search}`
+		`https://dummyjson.com/products/search?q=${input}`
 	);
-	return data.results;
+	return data.products;
 };
 
 //============== limit the product list ==============//

@@ -26,7 +26,7 @@ export const getProductList = async () => {
 
 export const getProductListHomePage = async () => {
 	const { data } = await axios.get(
-		'https://dummyjson.com/products?limit=4&skip=20'
+		'https://dummyjson.com/products?limit=4&skip=50'
 	);
 	return data.products;
 };
@@ -54,11 +54,8 @@ export const getLimitedProductList = async (limit, skip) => {
 	return data.results;
 };
 
-// need to be fixed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// set limit for category list
-export const getLimitedCategoryList = async (limit, skip) => {
-	const { data } = await axios.get(
-		`https://dummyjson.com/products/categories?limit=${limit}&skip=${skip}`
-	);
-	return data.results;
+//============== comments products ==============//
+export const getComments = async (id) => {
+	const { data } = await axios.get(`https://dummyjson.com/comments/post/${id}`);
+	return data.comments;
 };

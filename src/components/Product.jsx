@@ -173,7 +173,10 @@ export default function Product() {
 							Do you have any questions about the product? Please follow the
 							button to contact us.
 						</p>
-						<button className="btn btn-sm btn-warning mt-5 text-warning-content">
+						<button
+							onClick={() => navigate('/contact')}
+							className="btn btn-sm btn-warning mt-5 text-warning-content"
+						>
 							Contact us
 						</button>
 					</div>

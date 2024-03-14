@@ -57,12 +57,12 @@ export default function Login() {
 				<div className=" p-5 rounded-xl">
 					<h2 className="text-4xl font-bold mb-8">
 						Don&apos;t have <br /> an account? <br />
-						Register for <span className="text-warning">free</span>, <br /> and
+						Register for <span className="text-accent">free</span>, <br /> and
 						have access to <br /> the universe of{' '}
-						<span className="text-warning">T</span>
-						<span className="text-neutral">rendera</span>.
+						<span className="text-red-600">T</span>
+						<span className="text-blue-600">rendera</span>.
 					</h2>
-					<button className="btn btn-xl rounded-3xl shadow-xl btn-warning text-white">
+					<button className="btn btn-xl rounded-3xl shadow-xl btn-primary text-primary-content">
 						Register here
 					</button>
 				</div>
